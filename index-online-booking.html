@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Booking | Official</title>
+    <link rel="stylesheet" href="style-online-booking.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="card">
+    <h2>ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</h2>
+    
+    <div class="group">
+        <label>Ονοματεπώνυμο</label>
+        <input type="text" id="name" placeholder="π.χ. Mαρία Παπαδοπούλου">
+    </div>
+
+    <div class="group">
+        <label>Τηλέφωνο</label>
+        <input type="tel" id="phone" placeholder="69XXXXXXXX">
+    </div>
+
+    <div class="group">
+        <label>Υπηρεσία</label>
+        <select id="service">
+            <option value="Haircut">Ημιμόνιμο</option>
+            <option value="Beard">Gel</option>
+            <option value="Combo">Manicure</option>
+        </select>
+    </div>
+
+    <div class="group">
+        <label>Επιλογή Υπαλλήλου</label>
+        <select id="barber">
+            <option value="Νεκτάριος">Ελένα</option>
+            <option value="Γιάννης">Νεκταρία</option>
+        </select>
+    </div>
+
+    <div class="group">
+        <label>Ημερομηνία</label>
+        <input type="date" id="date_val">
+    </div>
+
+    <div class="group">
+    <label>Διαθέσιμες Ώρες</label>
+    <select id="time_val">
+        <option value="">Επίλεξε πρώτα ημερομηνία</option>
+    </select>
+</div>
+
+    <div class="btn-container">
+        <button id="submitBtn">ΕΠΙΒΕΒΑΙΩΣΗ</button>
+    </div>
+    <div id="status"></div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

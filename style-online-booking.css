@@ -1,0 +1,151 @@
+/* Premium Luxury Light Theme - Marlen */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600;800&display=swap');
+
+
+:root {
+    --gold-primary: #C5A059;     /* Το ζεστό χρυσό της φωτογραφίας */
+    --gold-hover: #A6823F;       /* Πιο σκούρο χρυσό για το hover */
+    --bg-marble: #F4EFEA;        /* Απαλό μπεζ / μαρμάρινο φόντο */
+    --card-bg: #FFFFFF;          /* Καθαρό λευκό για την κάρτα */
+    --text-dark: #3E3226;        /* Σκούρο σοκολατί/καφέ για τα γράμματα (όχι μαύρο) */
+    --text-muted: #8C7B6C;       /* Απαλό γκρι-καφέ για τις ετικέτες */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-marble);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Η Luxury Κάρτα σε Λευκό/Μπεζ με Χρυσό Πλαίσιο */
+.card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--gold-primary);
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 40px rgba(197, 160, 89, 0.15), 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0px 0px 25px var(--gold-primary);
+    caret-color: transparent;
+}
+
+
+
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-primary);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    font-size: 28px;
+    font-weight: 600;
+    caret-color: transparent;
+}
+
+.subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Ετικέτες πεδίων */
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+/* Inputs και Selects */
+input, select {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 1px solid #DCD1C0;
+    background: #FAF8F5;
+    font-size: 15px;
+    color: var(--text-dark);
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    caret-color: transparent;
+}
+
+/* Επιλογές μέσα στο select */
+select option {
+    background-color: #FFFFFF;
+    color: var(--text-dark);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--gold-primary);
+    background: #FFFFFF;
+    box-shadow: 0 0 8px rgba(197, 160, 89, 0.25);
+}
+
+input::placeholder {
+    color: #B5A89A;
+}
+
+/* Πολυτελές Χρυσό Κουμπί */
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-hover));
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(197, 159, 89);
+    
+
+}
+
+/* Μηνύματα */
+.error { 
+    color: #A94442; 
+    margin-top: 15px; 
+    text-align: center; 
+    font-size: 14px; 
+    font-weight: 600;
+} 
+
+.success { 
+    color: #4A6B35; 
+    margin-top: 15px; 
+    text-align: center; 
+    font-size: 14px; 
+    font-weight: 600;
+}

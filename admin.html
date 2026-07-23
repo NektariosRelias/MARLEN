@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlen - Διαχείριση Κρατήσεων</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #C5A059;
+            --bg-marble: #F4EFEA;
+            --card-bg: #FFFFFF;
+            --text-dark: #3E3226;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-marble);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 30px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0px 0px 25px rgba(197, 160, 89, 0.2);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #DCD1C0;
+            font-size: 14px;
+        }
+        th {
+            background-color: #FAF8F5;
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #8C7B6C;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Διαχείριση Ραντεβού (Admin)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ονοματεπώνυμο</th>
+                <th>Τηλέφωνο</th>
+                <th>Υπηρεσία</th>
+                <th>Υπάλληλος</th>
+                <th>Ημερομηνία & Ώρα</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="6" class="no-data">Δοκιμαστική προβολή σχεδιασμού admin</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
