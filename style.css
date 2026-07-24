@@ -154,24 +154,36 @@ body {
     overflow: hidden;
 } */
 
-.video-background {
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover; 
-    z-index: -1; 
+/* Το κουτί που "κλειδώνει" το βίντεο για να μην αφήνει λευκά κενά */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Πιάνει ακριβώς το 100% του ύψους της οθόνης (κινητού ή PC) */
+    overflow: hidden; /* Αν κάτι περισσεύει, το κόβει για να μην χαλάει η σελίδα */
 }
 
+/* Το βίντεο πάει πίσω-πίσω */
+.video-background {
+    position: absolute; /* ΑΥΤΟ ΕΛΕΙΠΕ και δημιουργούσε το πρόβλημα */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 1; 
+}
+
+/* Το μαύρο κάλυμμα (σβήσαμε το margin-top που έκανε ζημιά) */
 .cover {
-    margin-top: 100px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.779); 
+    background-color: rgba(0, 0, 0, 0.75); /* Ελαφρώς πιο καθαρό μαύρο */
+    z-index: 2; /* Μπαίνει πάνω από το βίντεο */
     
-    /* Κεντράρει τα πάντα (λογότυπο και κείμενα) */
+    /* Κεντράρει τέλεια το λογότυπο σε όλες τις οθόνες */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -180,25 +192,12 @@ body {
 }
 
 #bull { 
-    width: 450px; /* Καλύτερα σταθερό μέγεθος ή % */
-    margin-top: 0px; 
+    width: 85%; /* Responsive: Στα κινητά θα πιάνει το 85% της οθόνης */
+    max-width: 450px; /* Στα PC δεν θα ξεπερνάει ποτέ τα 450px */
+    z-index: 3;
 }
 
-/* #name_of_logo { 
-    color: white; 
-    font-size: clamp(2rem, 8vw, 5rem); 
-    text-transform: uppercase; 
-    margin: 0; 
-    font-weight: bold;
-}
 
-#shop { 
-    color: white; 
-    font-size: clamp(1rem, 4vw, 2.5rem); 
-    text-transform: uppercase; 
-    margin: 0; 
-    letter-spacing: 2px; 
-} */
 
 
 
