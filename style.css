@@ -935,4 +935,14 @@ body {
         text-align: center;    
         padding: 15px;
     }
+
+    .google-map {
+        width: 90% !important;
+        max-width: 450px !important;
+        height: 280px !important;
+        margin: 0 auto 25px auto !important;
+        display: block !important;
+        border-radius: 16px !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
 }
