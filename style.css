@@ -949,7 +949,7 @@ body {
 
     /* 💡 2. Το ίδιο το iframe του Google Maps μέσα στο κουτί */
     .google-map iframe {
-        width: 100% !important;
+        width: 75% !important;
         height: 250px !important;             /* Μικρότερο & κομψό ύψος για κινητά */
         border-radius: 16px !important;
     }
