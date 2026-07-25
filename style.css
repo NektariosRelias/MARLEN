@@ -937,7 +937,7 @@ body {
     }
 
     .google-map {
-        width: 90% !important;
+        width: 70% !important;
         max-width: 450px !important;
         height: 280px !important;
         margin: 0 auto 25px auto !important;
