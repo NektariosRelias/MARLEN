@@ -299,8 +299,24 @@ body {
 }
 
 /* ==========================================
-   ΤΟ ΚΟΥΜΠΙ ΣΟΥ (.glowbutton)
+   ΤΟ ΚΟΥΜΠΙ ΣΟΥ (.glowbutton) ΜΕ ΕΦΕ "ΑΝΑΠΝΟΗΣ"
    ========================================== */
+
+/* 💡 1. Το animation που κάνει την αύρα να αναπνέει ρυθμικά */
+@keyframes glowBreathe {
+    0%, 100% {
+        box-shadow: 0 0 15px 3px rgba(197, 160, 89, 0.4),
+                    0 8px 10px -6px rgba(62, 50, 38, 0.1);
+        transform: scale(1);
+    }
+    50% {
+        /* Η αύρα μεγαλώνει και δυναμώνει στη μέση της αναπνοής */
+        box-shadow: 0 0 35px 10px rgba(197, 160, 89, 0.85),
+                    0 0 65px 22px rgba(197, 160, 89, 0.45);
+        transform: scale(1.03); /* Ελαφριά αύξηση μεγέθους για να "αναπνέει" */
+    }
+}
+
 .glowbutton {
     --gold: var(--gold-primary, #C5A059);
     --gold-dark: var(--gold-hover, #A6823F);
@@ -324,12 +340,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 16px;
     
-    box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.4),
-                0 8px 10px -6px rgba(62, 50, 38, 0.1);
-    
     cursor: pointer;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* 💡 Ενεργοποίηση του εφέ αναπνοής (διάρκεια 2.8 δευτερόλεπτα, συνεχώς) */
+    animation: glowBreathe 2.8s infinite ease-in-out;
 }
 
 .glowbutton::after {
@@ -348,12 +364,15 @@ body {
     transition: left 0.6s ease-in-out;
 }
 
+/* Όταν ο χρήστης περνάει το ποντίκι (Hover) */
 .glowbutton:hover {
-    transform: translateY(-3px);
+    /* Σταματάει η αναπνοή για να σταθεροποιηθεί στο δυνατό φως */
+    animation: none; 
+    transform: translateY(-3px) scale(1.04);
     background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
     border-color: #FFFFFF;
     
-    /* 🔥 ΤΟ ΔΥΝΑΤΟ ΦΩΣ ΣΤΟ HOVER */
+    /* 🔥 ΤΟ ΠΟΛΥ ΔΥΝΑΤΟ ΦΩΣ ΣΤΟ HOVER */
     box-shadow: 
         0 0 30px 10px rgba(255, 230, 160, 1),
         0 0 70px 25px rgba(197, 160, 89, 0.95),
@@ -366,7 +385,7 @@ body {
 }
 
 .glowbutton:active {
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.01);
     box-shadow: 0 0 25px 8px rgba(197, 160, 89, 0.8);
 }
 
@@ -387,6 +406,7 @@ body {
         width: 100%;
         padding: 16px 20px;
         font-size: 14px;
+        box-sizing: border-box;
     }
 }
 
@@ -548,36 +568,6 @@ body {
 
 
 
-
-
-/* delivery with phone number and pos */
-.delivery {
-    display: flex;
-    flex-direction: column; /* Βάζει τα στοιχεία το ένα κάτω από το άλλο */
-    align-items: center;    /* Κεντράρει οριζόντια το κουμπί και τον τίτλο */
-    justify-content: center;
-    text-align: center;     /* Διασφαλίζει ότι και το κείμενο είναι κεντραρισμένο */
-    width: 100%;            /* Πιάνει όλο το διαθέσιμο πλάτος */
-    padding: 20px 0;
-    margin-top: 10%;
-    
-}
-
-.button {
-    margin-top: 5%;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  border: none;
-  background-color: #30C04F;
-}
-
-.button:hover {
-  background-color: #2bac47;
-}
 
 
 
