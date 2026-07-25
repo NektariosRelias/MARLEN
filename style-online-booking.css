@@ -1,7 +1,6 @@
 /* Premium Luxury Light Theme - Marlen */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600;800&display=swap');
 
-
 :root {
     --gold-primary: #C5A059;     /* Το ζεστό χρυσό της φωτογραφίας */
     --gold-hover: #A6823F;       /* Πιο σκούρο χρυσό για το hover */
@@ -40,9 +39,6 @@ body {
     box-shadow: 0px 0px 25px var(--gold-primary);
     caret-color: transparent;
 }
-
-
-
 
 h2 {
     font-family: 'Playfair Display', serif;
@@ -129,8 +125,6 @@ button {
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgb(197, 159, 89);
-    
-
 }
 
 /* Μηνύματα */
@@ -150,18 +144,20 @@ button:hover {
     font-weight: 600;
 }
 
-
-
-
-
 /* ΕΝΙΑΙΟ ΥΨΟΣ & ΣΤΥΛ ΓΙΑ ΟΛΑ ΤΑ ΠΕΔΙΑ ΤΗΣ ΦΟΡΜΑΣ */
+.card input[type="text"],
+.card input[type="tel"],
+.card input[type="date"],
+.card select,
 .booking-card input[type="text"],
 .booking-card input[type="tel"],
 .booking-card input[type="date"],
 .booking-card select {
     width: 100%;
-    height: 50px !important; /* 💡 Όλα παίρνουν ΑΚΡΙΒΩΣ το ίδιο ύψος */
-    padding: 0 15px;
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    padding: 0 15px !important;
     margin-top: 6px;
     margin-bottom: 20px;
     
@@ -175,12 +171,21 @@ button:hover {
     
     /* 💡 Ακυρώνει τα αυθαίρετα στυλ του iOS Safari */
     -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
 }
 
-/* Ειδική ευθυγράμμιση για το κείμενο μέσα στο Date input στο iPhone */
-.booking-card input[type="date"] {
-    display: flex;
-    align-items: center;
-    line-height: 50px;
+/* ΕΙΔΙΚΟ FIX ΓΙΑ ΤΑ IPHONE (Διορθώνει το εσωτερικό κενό στο Date input) */
+input[type="date"]::-webkit-date-and-time-value {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin: 0;
 }
