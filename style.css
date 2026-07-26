@@ -22,7 +22,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh; 
-    
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     
 }
 
@@ -207,16 +208,17 @@ body {
 
     /* 💡 Χρειάζεται ελάχιστο alpha (0.01) για να υποχρεώσει τον browser να ενεργοποιήσει το blur */
     background: rgba(0, 0, 0, 0); 
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    /* backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px); */
 
     box-sizing: border-box;
-    margin-bottom: 180px;
+    margin-top: 150px;
+    margin-bottom: 100px;
 }
 
 /* Η κάρτα του Booking */
 .booking-card {
-    background: rgba(18, 18, 18, 0.75);
+    background: rgba(18, 18, 18, 0.692);
     border: 1px solid rgba(255, 166, 0, 0.3);
     border-radius: 24px;
     padding: 50px 30px;
@@ -414,135 +416,230 @@ body {
 
 
 
-.google-map {
-    
-    width: 100%; /* Πιάνει όλο το πλάτος του container */
-    max-width: 1200px; /* Για να μην απλώνει υπερβολικά σε μεγάλες οθόνες */
-    margin: 30px auto; /* Κεντράρισμα */
-    overflow: hidden;
-    border-radius: 12px; /* Στρογγυλεμένες γωνίες για πιο μοντέρνο στυλ */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Μια απαλή σκιά */
-}
-
-.google-map iframe {
-    width: 100%; /* Ο χάρτης ακολουθεί το πλάτος του div */
-    height: 450px; /* Το ύψος που προτιμάς */
-    display: block;
-}
-
-
-
-
-
-/* Google Maps Section */
-#page_google_maps {
-    background: rgba(10, 25, 32, 0);
-    backdrop-filter: blur(25px);
-    padding: 50px 0 0 0;
-    box-sizing: border-box;
-    text-align: center;
-    transition: 0.5s;
-}
-
-
-
-#p {
-    font-style: italic;
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    /* Χρώμα που μοιάζει με ασήμι/μέταλλο */
-    background: linear-gradient(to bottom, #cfd9df 0%, #e2ebf0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* Η λεπτομέρεια: Σκληρή σκιά που δίνει όγκο */
-    filter: drop-shadow(2px 2px 0px var(--gold-hover)) 
-            drop-shadow(5px 5px 15px rgba(0,0,0,0.5));
-    letter-spacing: 8px;
-}
-
-.glowbutton2 {
-    /* Σύνδεση με τα δικά σου χρώματα */
-    --gold: var(--gold-primary);
-    --gold-dark: var(--gold-hover);
-    --text: var(--text-dark);
-    --bg: var(--card-bg);
-
-    /* Βασικό στήσιμο και διαστάσεις */
-    display: inline-flex;
-    align-items: center;
+/* ==========================================
+   SECTION CONTAINER
+   ========================================== */
+.luxury-location-section {
+    /* background-color: var(--bg-marble); */
+    margin-top: 0%;
+    padding: 90px 50px;
+    display: flex;
     justify-content: center;
     position: relative;
-    padding: 18px 42px;
-    margin-top: 60px;
-    
-    /* Πολυτελές φόντο με απαλό χρυσό ντεγκραντέ */
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    color: #FFFFFF;
-    
-    /* Αρχοντική τυπογραφία */
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.location-wrapper {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* HEADER STYLES */
+.location-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.location-tag {
+    color: var(--gold-primary);
+    font-size: 12px;
+    letter-spacing: 4px;
     font-weight: 600;
-    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.location-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.gold-line {
+    width: 70px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    margin: 15px auto 0 auto;
+}
+
+/* GRID LAYOUT */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* MAP STYLES */
+.map-box {
+    width: 100%;
+    height: 520px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    box-shadow: 0 15px 35px rgba(62, 50, 38, 0.08),
+                0 0 25px rgba(197, 160, 89, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.map-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(62, 50, 38, 0.12),
+                0 0 35px rgba(197, 160, 89, 0.25);
+}
+
+.map-box iframe,
+.map-box .google-map {
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+}
+
+/* INFO CARD STYLES */
+.location-card {
+    background: var(--bg-marble);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    border-radius: 20px;
+    padding: 45px 40px;
+    box-shadow: 0 20px 45px rgba(62, 50, 38, 0.06);
+}
+
+.salon-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin: 0 0 6px 0;
+}
+
+.salon-tagline {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* INFO ITEMS */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 35px;
+   
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.info-icon {
+    font-size: 18px;
+    background: rgba(197, 160, 89, 0.12);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    color: var(--gold-primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-text strong {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.info-text p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.info-text p a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-text p a:hover {
+    color: var(--gold-primary);
+}
+
+.sub-detail {
+    color: var(--text-muted) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.sub-hint {
+    display: block;
+    font-size: 12px;
+    color: var(--gold-primary);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* DIRECTIONS BUTTON */
+.directions-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px 0;
+    background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-hover) 100%);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
-    
-    /* Καθαρές, σοβαρές γωνίες (όχι υπερβολικά στρογγυλό) */
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 16px;
-    
-    /* Επαγγελματική ρεαλιστική σκιά βάθους στην ηρεμία */
-    box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.4),
-                0 8px 10px -6px rgba(62, 50, 38, 0.1);
-    
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.25);
+    transition: all 0.4s ease;
+    box-sizing: border-box;
 }
 
-/* Εφέ "Shine" - Απαλή μεταλλική γυαλάδα που περνάει στο hover */
-.glowbutton2::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    transition: left 0.6s ease-in-out;
-}
-
-/* Τι γίνεται όταν ο πελάτης φέρνει το ποντίκι από πάνω (Hover) */
-.glowbutton2:hover {
-    transform: translateY(-3px); /* Ανεβαίνει ελαφρώς προς τα πάνω με αρχοντιά */
-    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+.directions-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(197, 160, 89, 0.4);
     border-color: #FFFFFF;
-    
-    /* 🔥 ΠΟΛΥ ΕΝΤΟΝΟ & ΜΕΓΑΛΟ ΧΡΥΣΟ ΦΩΣ ΠΙΣΩ ΑΠΟ ΤΟ ΚΟΥΜΠΙ */
-    box-shadow: 
-        0 0 30px 10px rgb(255, 230, 160),     /* 1. Καυτός, πολύ λαμπερός πυρήνας */
-        0 0 70px 25px rgba(197, 160, 89, 0.95),  /* 2. Δυνατό χρυσό φως */
-        0 0 120px 45px rgba(197, 160, 89, 0.65), /* 3. Ευρεία αύρα που απλώνει */
-        0 0 180px 70px rgba(197, 160, 89, 0.35); /* 4. Γιγάντιος εξωτερικός φωτισμός */
 }
 
-.glowbutton2:hover::after {
-    left: 100%; /* Η γυαλάδα διασχίζει όλο το κουμπί */
-}
+/* RESPONSIVE DESIGN FOR MOBILE */
+@media (max-width: 900px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 
-/* Τι γίνεται όταν το πατάει (Active) */
-.glowbutton2:active {
-    transform: translateY(-1px);
-    box-shadow: 0 0 25px 8px rgba(197, 160, 89, 0.8),
-                0 5px 15px -3px rgba(197, 160, 89, 0.5);
+    .map-box {
+        height: 350px;
+    }
+
+    .location-card {
+        padding: 30px 20px;
+    }
+
+    .location-title {
+        font-size: 2.2rem;
+    }
+
+    .salon-name {
+        font-size: 1.8rem;
+    }
 }
 
 
@@ -575,21 +672,13 @@ body {
 
 
 #google-reviews {
-    margin-top: 200px;
-    font-style: italic;
-    font-size: 2.5rem;
-    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-dark);
+    margin-top: 175px;
     text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    /* Χρώμα που μοιάζει με ασήμι/μέταλλο */
-    background: linear-gradient(to bottom, #cfd9df 0%, #e2ebf0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* Η λεπτομέρεια: Σκληρή σκιά που δίνει όγκο */
-    filter: drop-shadow(2px 2px 0px var(--gold-hover)) 
-            drop-shadow(5px 5px 15px rgba(0,0,0,0.5));
-    letter-spacing: 8px;
 }
 
 /* Το Container που ελέγχει τη διάταξη 2x2 */
